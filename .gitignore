@@ -1,5 +1,3 @@
 #Ignores .txt files and PICS.file
 
 *.txt
-PICS/
-Music_MP3/
