@@ -13,7 +13,8 @@ from PIL import ImageTk, Image  #FOR USING IMAGES
 
 print('Folder path: ',os.path.dirname(__file__).replace('\\','/'))
 
-db = mysql.connector.connect(host='localhost', user='root',passwd='flames@1609')
+#**************ENTER USER AND PASSWORD FOR MYSQL**************
+db = mysql.connector.connect(host='localhost', user='',passwd='')
 c = db.cursor()
 
 #FUNCTION TO CREATE DATABASE
@@ -223,9 +224,10 @@ def login():
         server.starttls()
 
         msg = 'Thanks for logging in our Music Player. '+'\nThis is your One Time Password (OTP): '+str(otp)+'\nHave a good day.'
-        
-        server.login('noreply.mp3player@gmail.com','buohtuyesfvdrnzx')
-        server.sendmail('noreply.mp3player@gmail.com',tv2.get(),msg)
+
+        #**************ENTER EMAIL ID AND PASSWORD**************
+        server.login('<email>','<passwd>')
+        server.sendmail('<emailid>',tv2.get(),msg)
         print("OTP: ",otp)
 
         messagebox.showinfo('OTP VERIFICATION ','OTP SENT TO '+ tv2.get())
