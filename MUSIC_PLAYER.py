@@ -11,10 +11,11 @@ import pygame
 from pygame import mixer        #FOR MUSIC
 from PIL import ImageTk, Image  #FOR USING IMAGES
 
+#CHECK LINE 18, 229, 230 BEFORE RUNNING THE CODE
+
 print('Folder path: ',os.path.dirname(__file__).replace('\\','/'))
 
-#**************ENTER USER AND PASSWORD FOR MYSQL**************
-db = mysql.connector.connect(host='localhost', user='',passwd='')
+db = mysql.connector.connect(host='localhost', user='root',passwd='<YOUR_PASSWD>')
 c = db.cursor()
 
 #FUNCTION TO CREATE DATABASE
@@ -224,10 +225,9 @@ def login():
         server.starttls()
 
         msg = 'Thanks for logging in our Music Player. '+'\nThis is your One Time Password (OTP): '+str(otp)+'\nHave a good day.'
-
-        #**************ENTER EMAIL ID AND PASSWORD**************
-        server.login('<email>','<passwd>')
-        server.sendmail('<emailid>',tv2.get(),msg)
+        
+        server.login('EMAIL-ID FOR SENDING OTP','PASSWD')
+        server.sendmail('EMAIL-ID FOR SENDING OTP',tv2.get(),msg)
         print("OTP: ",otp)
 
         messagebox.showinfo('OTP VERIFICATION ','OTP SENT TO '+ tv2.get())
